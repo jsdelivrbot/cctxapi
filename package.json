@@ -1,5 +1,5 @@
 {
-  "name": "tickerapi",
+  "name": "cctxapi",
   "version": "1.0.0",
   "description": "A NodeJs Api over CCTX crypto exchanges library",
   "repository": {

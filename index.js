@@ -16,7 +16,19 @@ const router = express.Router();
 
 router.get('/ticker', function (req, res) {
 
-  Promise.resolve('Hello World').then(response => res.send(response));
+  Promise.resolve({"symbol": symbol, "exchangeId": exchenges[0]})
+  .then(response => {
+    return {
+      "exchangeId": response.exchangeId,
+      "ticker": exchange.fetchTicker(response.symbol)
+    })
+  .then(response => {
+    return {
+      "datetime": response['datetime'],
+      "exchangeId": exchangeId,
+      "price": response['last']
+    };)
+  .then(response => res.json(response));
 
   /*
   new Promise((resolve, reject) => {
