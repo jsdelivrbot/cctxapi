@@ -91,39 +91,9 @@ router.get('/ticker', function (req, res) {
     .then(response => res.json(response))
     .catch(error => {
       console.error(error);
-      res.status(504).end();
+      res.status(504).send(error).end();
     });
 
-  //console.log(config);
-  //const exchangeId = exchanges[0];
-
-  /*
-  let promises = [];
-  exchanges.map(exchangeId => {
-    let promise = Promise
-        .resolve({})
-        .then(response => {
-          const exchange = new ccxt[exchangeId]({ enableRateLimit: true });
-          return exchange.fetchTicker(symbol);
-        })
-        .then(response => {
-          return {
-            "datetime": response['datetime'],
-            "exchangeId": exchangeId,
-            "price": response['last']
-          };
-        });
-
-    promises.push(promise);
-  });
-
-  Promise
-    .all(promises)
-    .then(response => res.json(response))
-    .catch(error => {
-      console.error(error);
-    });
-    */
 });
 
 app
