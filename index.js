@@ -16,19 +16,33 @@ const router = express.Router();
 
 router.get('/ticker', function (req, res) {
 
-  Promise.resolve({"symbol": symbol, "exchangeId": exchenges[0]})
-  .then(response => {
-    return {
-      "exchangeId": response.exchangeId,
-      "ticker": exchange.fetchTicker(response.symbol)
-    })
-  .then(response => {
-    return {
-      "datetime": response['datetime'],
-      "exchangeId": exchangeId,
-      "price": response['last']
-    };)
-  .then(response => res.json(response));
+  //const exchangeId = exchanges[0];
+
+  let promises = [];
+  exchanges.map(exchangeId => {
+    let promise = Promise
+        .resolve({})
+        .then(response => {
+          const exchange = new ccxt[exchangeId]({ enableRateLimit: true });
+          return exchange.fetchTicker(symbol);
+        })
+        .then(response => {
+          return {
+            "datetime": response['datetime'],
+            "exchangeId": exchangeId,
+            "price": response['last']
+          };
+        });
+
+    promises.push(promise);
+  });
+
+  Promise
+    .all(promises)
+    .then(response => res.json(response))
+    .catch(error => {
+      console.error(error);
+    });
 
   /*
   new Promise((resolve, reject) => {
