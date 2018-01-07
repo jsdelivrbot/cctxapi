@@ -43,20 +43,6 @@ module.exports =
 			"q": 199.8
 		},
 		{
-			"title": "SALT (Salt)",
-			"symbol": "SALT",
-			"api": "binance",
-			"pair": "SALT/BTC",
-			"q": 10.08990000
-		},
-		{
-			"title": "SMART (SmartCash)",
-			"symbol": "SMART",
-			"api": "hitbtc2",
-			"pair": "SMART/BTC",
-			"q": 1045.207787
-		},
-		{
 			"title": "DMD (Diamond)",
 			"symbol": "DMD",
 			"api": "livecoin",
@@ -68,7 +54,7 @@ module.exports =
 			"symbol": "MOIN",
 			"api": "livecoin",
 			"pair": "MOIN/BTC",
-			"q": 420.49591867
+			"q": 423.39248789
 		}
 	]
 }
