@@ -66,15 +66,23 @@ router.get('/ticker', function (req, res) {
       return Promise
         .all(promises)
         .then(response => {
-          let totalBtc = 0.0;
           let totalEur = 0.0;
           response.map(r => {
-            totalBtc = totalBtc + (r['priceBtc'] * r['quantity']);
             totalEur = totalEur + (r['totalEur']);
           });
 
           response.map(r => {
             r['percentage'] = r['totalEur'] * 100 / totalEur;
+          });
+          response.sort(function(a,b) {return (b['percentage'] > a['percentage']) ? 1 : ((a['percentage'] > b['percentage']) ? -1 : 0);} )
+          return response;
+        })
+        .then(response => {
+          let totalBtc = 0.0;
+          let totalEur = 0.0;
+          response.map(r => {
+            totalBtc = totalBtc + (r['priceBtc'] * r['quantity']);
+            totalEur = totalEur + (r['totalEur']);
           });
 
           // Hack
