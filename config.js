@@ -12,7 +12,7 @@ module.exports =
 			"symbol": "LTC",
 			"api": "bitfinex",
 			"pair": "LTC/BTC",
-			"q": 1.08305026
+			"q": 1.0851973
 		},
 		{
 			"title": "XRP (Ripple)",
@@ -33,28 +33,21 @@ module.exports =
 			"symbol": "ARK",
 			"api": "binance",
 			"pair": "ARK/BTC",
-			"q": 77.47245000
-		},
-		{
-			"title": "ADA (Cardano)",
-			"symbol": "ADA",
-			"api": "binance",
-			"pair": "ADA/BTC",
-			"q": 199.8
+			"q": 76.58000000
 		},
 		{
 			"title": "DMD (Diamond)",
 			"symbol": "DMD",
 			"api": "livecoin",
 			"pair": "DMD/BTC",
-			"q": 18.31132894
+			"q": 19.83000000
 		},
 		{
 			"title": "MOIN (Moin)",
 			"symbol": "MOIN",
 			"api": "livecoin",
 			"pair": "MOIN/BTC",
-			"q": 423.39248789
+			"q": 424.89344680
 		}
 	]
 }
